@@ -1,0 +1,2 @@
+window.TRSBS=window.TRSBS||{};
+TRSBS.analytics={track:(event,payload={})=>console.debug("[TrSBS analytics]",event,payload),datasetViewed:id=>TRSBS.analytics.track("dataset_viewed",{id}),datasetDownloaded:(id,format)=>TRSBS.analytics.track("dataset_downloaded",{id,format})};

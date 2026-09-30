@@ -1,0 +1,30 @@
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Change a color/spacing value here and it propagates everywhere.
+   Nothing in app.css should hardcode a color — if you find one,
+   it's a bug; promote it to a token here instead.
+═══════════════════════════════════════════════════════════ */
+:root{
+  --blue:#008abc; --blue-dark:#006f96; --blue-soft:rgba(0,138,188,.08);
+  --green:#1b5e35; --green-soft:rgba(27,94,53,.08);
+  --white:#ffffff;
+  --border:#e2e8f0; --border-dark:#d5dbe3;
+  --text:#202124; --text-secondary:#5f6368; --text-muted:#80868b;
+  --surface:#f8f9fa; --surface-hover:#f1f3f4;
+  --danger:#b42318; --success:#067647; --warning:#b54708;
+  --sans:"Inter",sans-serif; --mono:"JetBrains Mono",monospace;
+  --header-height:60px; --sidebar-width:285px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.04);
+  --shadow-md:0 6px 22px rgba(0,0,0,.06);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+html,body{width:100%; min-height:100%;}
+body{font-family:var(--sans); background:var(--white); color:var(--text); -webkit-font-smoothing:antialiased; overflow:hidden;}
+button,input,select{font-family:inherit;}
+button{border:0; background:none; cursor:pointer;}
+a{color:inherit;}

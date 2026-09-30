@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taraba State Bureau of Statistics · Official Statistics Portal</title>
+<meta name="description" content="Official statistics, datasets, publications, maps, indicators and data stories from the Taraba State Bureau of Statistics.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div class="app home-mode" id="app">
+
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" title="Back to Catalog">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+      <a href="#" class="brand" data-page="home" title="Home">
+        <div class="brand-logo">TRSBS</div>
+        <div class="brand-text">
+          <div class="brand-title">TARABA STATE</div>
+          <div class="brand-subtitle">BUREAU OF STATISTICS</div>
+        </div>
+      </a>
+    </div>
+
+    <nav class="primary-nav" id="primaryNav">
+      <button class="primary-nav-link active" data-page="home">Home</button>
+      <button class="primary-nav-link" data-page="catalog">Catalog</button>
+      <button class="primary-nav-link" data-page="economy">Economy</button>
+      <button class="primary-nav-link" data-page="population">Population</button>
+      <button class="primary-nav-link" data-page="reports">Reports</button>
+      <button class="primary-nav-link" data-page="local-data">Local Data</button>
+      <button class="primary-nav-link" data-page="api">API Hub</button>
+      <button class="primary-nav-link" data-page="about">About Us</button>
+    </nav>
+
+    <div class="header-search">
+      <div class="search">
+        <div class="search-icon">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zM9.5 14C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </div>
+        <input id="globalSearch" type="search" placeholder="Search datasets, indicators, publications..." autocomplete="off">
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="header-button signin">Sign In</button>
+      <button class="header-button register">Register</button>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Explore</div>
+
+      <button class="sidebar-link" data-page="home">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="sidebar-link active" data-page="catalog">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v3H4V4zm0 6h16v3H4v-3zm0 6h10v3H4v-3z"/></svg>
+        <span>Catalog</span>
+      </button>
+      <button class="sidebar-link" data-page="economy">
+        <svg viewBox="0 0 24 24"><path d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z"/></svg>
+        <span>Economy</span>
+      </button>
+      <button class="sidebar-link" data-page="population">
+        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 2.01 1.97 3.45V19h7v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        <span>Population</span>
+      </button>
+      <button class="sidebar-link" data-page="reports">
+        <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5z M8 11h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+        <span>Reports</span>
+      </button>
+      <button class="sidebar-link" data-page="local-data">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Local Data</span>
+      </button>
+      <button class="sidebar-link" data-page="api">
+        <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z M14.6 16.6L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z M13 3l-2 18h2l2-18h-2z"/></svg>
+        <span>API Hub</span>
+      </button>
+      <button class="sidebar-link" data-page="about">
+        <svg viewBox="0 0 24 24"><path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z M11 9h2V7h-2v2z"/></svg>
+        <span>About Us</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Quick Access</div>
+
+      <button class="sidebar-link" data-page="catalog">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-5h2v5zm4 0h-2V7h2v10zm4 0h-2v-7h2v7z"/></svg>
+        <span>Datasets</span>
+      </button>
+      <button class="sidebar-link" data-page="reports">
+        <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM18 20H6V4h12v16zM8 6h8v2H8V6zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
+        <span>Publications</span>
+      </button>
+      <button class="sidebar-link" data-page="api">
+        <svg viewBox="0 0 24 24"><path d="M9 3H5c-1.1 0-2 .9-2 2v4h2V5h4V3zm10 0h-4v2h4v4h2V5c0-1.1-.9-2-2-2zM5 15H3v4c0 1.1.9 2 2 2h4v-2H5v-4zm16 0h-2v4h-4v2h4c1.1 0 2-.9 2-2v-4z"/></svg>
+        <span>Developer Tools</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- HOME -->
+    <section class="page home-page active" id="page-home">
+      <div class="home-container">
+
+        <section class="home-hero">
+          <div class="home-eyebrow">OFFICIAL STATISTICS · TARABA STATE</div>
+          <h1 class="home-title">Understanding Taraba through data.</h1>
+          <p class="home-description">The official digital platform of the Taraba State Bureau of Statistics for discovering, understanding, and accessing statistics about the people, economy, environment, and development of Taraba State.</p>
+          <div class="home-actions">
+            <button class="primary-action" data-page="catalog">Explore Catalog →</button>
+            <button class="secondary-action" data-page="population">Explore Taraba Data →</button>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading">
+            <div class="section-heading-left">
+              <h2>State Statistical Highlights</h2>
+              <p>A quick view of important statistical resources available through TrSBS.</p>
+            </div>
+            <a href="#" class="view-all" data-page="catalog">Explore catalog →</a>
+          </div>
+          <div class="highlights-grid">
+            <article class="highlight-card"><div class="highlight-label">Local Government Areas</div><div class="highlight-value">16</div><div class="highlight-note">Administrative areas of Taraba State</div></article>
+            <article class="highlight-card"><div class="highlight-label">Open Datasets</div><div class="highlight-value">100+</div><div class="highlight-note">Target statistical catalog</div></article>
+            <article class="highlight-card"><div class="highlight-label">Statistical Indicators</div><div class="highlight-value">400+</div><div class="highlight-note">State-level indicators</div></article>
+            <article class="highlight-card"><div class="highlight-label">Data Coverage</div><div class="highlight-value">16 LGAs</div><div class="highlight-note">Local and statewide statistics</div></article>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading">
+            <div class="section-heading-left">
+              <h2>Featured Datasets</h2>
+              <p>Discover structured state-level data prepared for analysis and research.</p>
+            </div>
+            <a href="#" class="view-all" data-page="catalog">View all datasets →</a>
+          </div>
+          <div class="dataset-grid">
+            <article class="dataset-card" data-dataset="population" data-search="population demographics census lga">
+              <div class="dataset-top"><span class="dataset-type">SDMX · CSV</span><span class="dataset-source">TrSBS</span></div>
+              <h3 class="dataset-title">Taraba State Population &amp; Demography</h3>
+              <p class="dataset-description">Population structure, demographic characteristics and distribution across Taraba State and its LGAs.</p>
+              <div class="dataset-footer"><span class="dataset-meta">Population · 16 LGAs</span><span class="dataset-action">Explore →</span></div>
+            </article>
+            <article class="dataset-card" data-dataset="agriculture" data-search="agriculture crops livestock maize yam cassava">
+              <div class="dataset-top"><span class="dataset-type">SDMX · CSV</span><span class="dataset-source">TrSBS</span></div>
+              <h3 class="dataset-title">Agriculture &amp; Livestock Statistics</h3>
+              <p class="dataset-description">Crop production, livestock, agricultural activities and production indicators across Taraba.</p>
+              <div class="dataset-footer"><span class="dataset-meta">Agriculture · State data</span><span class="dataset-action">Explore →</span></div>
+            </article>
+            <article class="dataset-card" data-dataset="health" data-search="health hospitals maternal mortality health facilities">
+              <div class="dataset-top"><span class="dataset-type">SDMX · XLSX</span><span class="dataset-source">TrSBS</span></div>
+              <h3 class="dataset-title">Health &amp; Health Facilities</h3>
+              <p class="dataset-description">Health facilities, service delivery, maternal health and selected health indicators.</p>
+              <div class="dataset-footer"><span class="dataset-meta">Health · State data</span><span class="dataset-action">Explore →</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading">
+            <div class="section-heading-left">
+              <h2>Explore Data by Category</h2>
+              <p>State-level datasets organized around the statistical needs of Taraba.</p>
+            </div>
+            <a href="#" class="view-all" data-page="catalog">Browse catalog →</a>
+          </div>
+          <div class="category-grid">
+            <article class="category-card"><div class="category-code">01 · POP</div><h3 class="category-title">Population</h3><p class="category-description">Population, households, demographics and local government statistics.</p></article>
+            <article class="category-card"><div class="category-code">02 · AGR</div><h3 class="category-title">Agriculture</h3><p class="category-description">Crops, livestock, production and agricultural activities.</p></article>
+            <article class="category-card"><div class="category-code">03 · HLT</div><h3 class="category-title">Health</h3><p class="category-description">Health facilities, services and selected health indicators.</p></article>
+            <article class="category-card"><div class="category-code">04 · EDU</div><h3 class="category-title">Education</h3><p class="category-description">Schools, enrolment, teachers and education outcomes.</p></article>
+            <article class="category-card"><div class="category-code">05 · LBR</div><h3 class="category-title">Labour</h3><p class="category-description">Employment, labour force and workforce indicators.</p></article>
+            <article class="category-card"><div class="category-code">06 · POV</div><h3 class="category-title">Poverty</h3><p class="category-description">Poverty, household welfare and living conditions.</p></article>
+            <article class="category-card"><div class="category-code">07 · CPI</div><h3 class="category-title">Prices &amp; CPI</h3><p class="category-description">Consumer prices and price movements within the state economy.</p></article>
+            <article class="category-card"><div class="category-code">08 · GDP</div><h3 class="category-title">State GDP</h3><p class="category-description">Economic output and sectoral contribution to Taraba's economy.</p></article>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="section-heading">
+            <div class="section-heading-left">
+              <h2>Taraba Data Story</h2>
+              <p>Understand Taraba through statistics, visual narratives and evidence.</p>
+            </div>
+            <a href="#" class="view-all" data-page="population">Explore →</a>
+          </div>
+          <article class="story-card">
+            <div class="story-content">
+              <div class="story-label">FEATURED STORY</div>
+              <h2 class="story-title">How is Taraba changing?</h2>
+              <p class="story-description">Explore Taraba's people, economy, agriculture, environment and development through official statistics.</p>
+              <button class="story-button" data-page="population">Explore Taraba Data →</button>
+            </div>
+            <div class="story-visual">
+              <div class="story-visual-grid"></div>
+              <div class="story-visual-circle"></div>
+              <div class="story-visual-card"><small>DATA STORY</small><strong>Taraba</strong><small>People · Economy · Place</small></div>
+            </div>
+          </article>
+        </section>
+
+        <footer class="site-footer">
+          <div class="footer-inner">
+            <span>© Taraba State Bureau of Statistics</span>
+            <span>Official Statistics · Data · Evidence</span>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="page section-page" id="page-catalog">
+      <div class="section-container">
+
+        <div class="catalog-list-view" id="catalogListView">
+          <div class="section-header">
+            <div class="section-eyebrow">DATA CATALOG</div>
+            <h1 class="section-title">Statistical Data Catalog</h1>
+            <p class="section-description">Discover official datasets from the Taraba State Bureau of Statistics. Each dataset is structured around standard statistical dimensions so that the same data can support dashboards, tables, downloads and APIs.</p>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="catalog-search">
+              <span class="catalog-search-icon">⌕</span>
+              <input type="search" id="catalogSearch" placeholder="Search datasets, topics, indicators...">
+            </div>
+            <div class="catalog-summary">8 statistical datasets · SDMX-ready</div>
+          </div>
+
+          <div class="catalog-filters">
+            <button class="filter-chip active" data-filter="all">All datasets</button>
+            <button class="filter-chip" data-filter="population">Population</button>
+            <button class="filter-chip" data-filter="economy">Economy</button>
+            <button class="filter-chip" data-filter="agriculture">Agriculture</button>
+            <button class="filter-chip" data-filter="health">Health</button>
+            <button class="filter-chip" data-filter="education">Education</button>
+          </div>
+
+          <div class="catalog-dataset-grid" id="catalogDatasetGrid">
+
+            <article class="catalog-dataset-card" data-category="population" data-dataset="population" data-search="population demography age sex lga households census">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Taraba State Population &amp; Demography</h3>
+              <p>Population estimates, age and sex structure, demographic characteristics and geographic distribution.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">16 LGAs</span><span class="catalog-meta-tag">Population</span><span class="catalog-meta-tag">Annual</span><span class="catalog-meta-tag">CSV</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">POP.POPULATION.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="agriculture" data-dataset="agriculture" data-search="agriculture crops livestock maize yam cassava production">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Agriculture &amp; Livestock Statistics</h3>
+              <p>Crop production, livestock population, agricultural activities and production indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Agriculture</span><span class="catalog-meta-tag">Crops</span><span class="catalog-meta-tag">Livestock</span><span class="catalog-meta-tag">Annual</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">AGR.AGRICULTURE.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="health" data-dataset="health" data-search="health hospitals facilities maternal mortality services">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Health &amp; Health Facilities</h3>
+              <p>Health facilities, service delivery, maternal health and selected health indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Health</span><span class="catalog-meta-tag">Facilities</span><span class="catalog-meta-tag">LGA</span><span class="catalog-meta-tag">Annual</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">HLT.HEALTH.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="education" data-dataset="education" data-search="education schools enrollment teachers students">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Education Statistics</h3>
+              <p>Schools, enrolment, teachers, pupils and selected education indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Education</span><span class="catalog-meta-tag">Schools</span><span class="catalog-meta-tag">Enrolment</span><span class="catalog-meta-tag">Annual</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">EDU.EDUCATION.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="economy" data-dataset="labour" data-search="labour employment unemployment workforce jobs">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Labour &amp; Employment</h3>
+              <p>Employment, unemployment, labour-force participation and workforce indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Labour</span><span class="catalog-meta-tag">Employment</span><span class="catalog-meta-tag">Quarterly</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">LBR.LABOUR.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="economy" data-dataset="cpi" data-search="prices cpi inflation consumer price index">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Consumer Prices &amp; CPI</h3>
+              <p>Consumer price indices, inflation and selected price indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Prices</span><span class="catalog-meta-tag">CPI</span><span class="catalog-meta-tag">Monthly</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">CPI.PRICES.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="economy" data-dataset="gdp" data-search="gdp economy economic output sectors state gross domestic product">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Taraba State GDP</h3>
+              <p>Economic output and sectoral contribution to Taraba State's economy.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">GDP</span><span class="catalog-meta-tag">Economy</span><span class="catalog-meta-tag">Quarterly</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">GDP.STATE.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+            <article class="catalog-dataset-card" data-category="population" data-dataset="poverty" data-search="poverty welfare household living conditions deprivation">
+              <div class="catalog-dataset-top"><span class="dataset-badge">SDMX · DATAFLOW</span><span class="dataset-updated">Updated 2026</span></div>
+              <h3>Poverty &amp; Household Welfare</h3>
+              <p>Poverty, household welfare, living conditions and selected deprivation indicators.</p>
+              <div class="catalog-dataset-meta"><span class="catalog-meta-tag">Poverty</span><span class="catalog-meta-tag">Households</span><span class="catalog-meta-tag">Survey</span></div>
+              <div class="catalog-dataset-footer"><span class="catalog-dataset-id">POV.WELFARE.01</span><span class="catalog-open">View dataset →</span></div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- DATASET DETAIL -->
+        <div class="dataset-detail" id="datasetDetail">
+          <button class="dataset-back" id="datasetBack">← Back to Catalog</button>
+
+          <div class="dataset-detail-header">
+            <div class="dataset-detail-breadcrumb">Catalog / Population / Dataflow / POP.POPULATION.01</div>
+            <div class="dataset-detail-title-row">
+              <div>
+                <h1 class="dataset-detail-title" id="detailTitle">Taraba State Population &amp; Demography</h1>
+                <p class="dataset-detail-description" id="detailDescription">Population estimates, demographic structure and geographic distribution across Taraba State and its 16 Local Government Areas.</p>
+              </div>
+              <div class="dataset-actions">
+                <button class="dataset-action-button" id="downloadButton">↓ Download CSV</button>
+                <button class="dataset-action-button">Metadata</button>
+                <button class="dataset-action-button primary" id="apiButton">API</button>
+              </div>
+            </div>
+
+            <div class="sdmx-identity">
+              <div class="sdmx-identity-item"><div class="sdmx-label">Dataflow</div><div class="sdmx-value" id="detailDataflow">POPULATION</div></div>
+              <div class="sdmx-identity-item"><div class="sdmx-label">Agency</div><div class="sdmx-value">TRSBS</div></div>
+              <div class="sdmx-identity-item"><div class="sdmx-label">Version</div><div class="sdmx-value">1.0</div></div>
+              <div class="sdmx-identity-item"><div class="sdmx-label">Structure</div><div class="sdmx-value">POP.GEO.SEX.AGE.TIME</div></div>
+              <div class="sdmx-identity-item"><div class="sdmx-label">Frequency</div><div class="sdmx-value" id="detailFrequency">Annual</div></div>
+            </div>
+          </div>
+
+          <div class="dataset-body">
+            <nav class="dataset-tabs">
+              <div class="dataset-tabs-title">Dataset</div>
+              <button class="dataset-tab active" data-panel="overview"><span class="tab-code">01</span>Overview</button>
+              <button class="dataset-tab" data-panel="dimensions"><span class="tab-code">02</span>Dimensions</button>
+              <button class="dataset-tab" data-panel="observations"><span class="tab-code">03</span>Observations</button>
+              <button class="dataset-tab" data-panel="metadata"><span class="tab-code">04</span>Metadata</button>
+              <button class="dataset-tab" data-panel="api-preview"><span class="tab-code">05</span>API</button>
+            </nav>
+
+            <div class="dataset-content">
+
+              <section class="data-panel active" id="panel-overview">
+                <h2 class="panel-title">Dataset Overview</h2>
+                <p class="panel-description">The public-facing dataset view is powered by a structured statistical model. Users see simple tables and indicators while the underlying dataset is organized through SDMX concepts.</p>
+
+                <div class="sdmx-note">
+                  <div class="sdmx-note-icon">SD</div>
+                  <div>
+                    <strong>Structured statistical data</strong>
+                    <p>This dataset uses a Dataflow → Dimensions → Geography → Time → Observation structure. The technical SDMX layer remains underneath the public interface and can later connect directly to trsbsR, the TrSBS API and the statistical database.</p>
+                  </div>
+                </div>
+
+                <div class="dimension-grid">
+                  <div class="dimension-card"><div class="dimension-code">DIMENSION 01</div><div class="dimension-name">Indicator</div><div class="dimension-value">Population</div></div>
+                  <div class="dimension-card"><div class="dimension-code">DIMENSION 02</div><div class="dimension-name">Geography</div><div class="dimension-value">Taraba State / LGA</div></div>
+                  <div class="dimension-card"><div class="dimension-code">DIMENSION 03</div><div class="dimension-name">Sex</div><div class="dimension-value">Total / Male / Female</div></div>
+                  <div class="dimension-card"><div class="dimension-code">DIMENSION 04</div><div class="dimension-name">Age Group</div><div class="dimension-value">All ages / selected groups</div></div>
+                  <div class="dimension-card"><div class="dimension-code">DIMENSION 05</div><div class="dimension-name">Time</div><div class="dimension-value">2020–2026</div></div>
+                  <div class="dimension-card"><div class="dimension-code">MEASURE</div><div class="dimension-name">Observation</div><div class="dimension-value">Population count</div></div>
+                </div>
+              </section>
+
+              <section class="data-panel" id="panel-dimensions">
+                <h2 class="panel-title">Dimensions &amp; Structure</h2>
+                <p class="panel-description">Select the dimensions that define the statistical series displayed in the dataset.</p>
+
+                <div class="data-controls">
+                  <div class="data-control"><label>Indicator</label>
+                    <select id="indicatorSelect"><option>Population</option><option>Population Growth Rate</option><option>Population Density</option></select>
+                  </div>
+                  <div class="data-control"><label>Geography</label>
+                    <select id="geoSelect">
+                      <option>Taraba State</option><option>Ardo-Kola</option><option>Bali</option><option>Donga</option>
+                      <option>Gashaka</option><option>Gassol</option><option>Ibi</option><option>Jalingo</option>
+                      <option>Karim Lamido</option><option>Kumi</option><option>Lau</option><option>Sardauna</option>
+                      <option>Takum</option><option>Yorro</option><option>Zing</option>
+                    </select>
+                  </div>
+                  <div class="data-control"><label>Sex</label><select><option>Total</option><option>Male</option><option>Female</option></select></div>
+                  <div class="data-control"><label>Age</label><select><option>All ages</option><option>0–14</option><option>15–24</option><option>25–64</option><option>65+</option></select></div>
+                  <div class="data-control"><label>Frequency</label><select><option>Annual</option></select></div>
+                </div>
+
+                <div class="sdmx-note">
+                  <div class="sdmx-note-icon">DIM</div>
+                  <div>
+                    <strong>How the data is organized</strong>
+                    <p>These selectors represent the statistical dimensions of the series. In the production system they will be resolved against the SDMX data structure and returned from the TrSBS data service.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="data-panel" id="panel-observations">
+                <h2 class="panel-title">Observations</h2>
+                <p class="panel-description">The actual statistical values returned for the selected dimensions.</p>
+
+                <div class="data-controls">
+                  <div class="data-control"><label>Geography</label>
+                    <select id="observationGeo"><option>Taraba State</option><option>Jalingo</option><option>Bali</option><option>Gassol</option></select>
+                  </div>
+                  <div class="data-control"><label>Year</label>
+                    <select id="observationYear"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option></select>
+                  </div>
+                </div>
+
+                <div class="observation-toolbar">
+                  <div class="observation-status">Showing 7 observations · Total population</div>
+                  <button class="dataset-action-button" id="refreshData">Refresh data</button>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="observation-table">
+                    <thead><tr><th>TIME_PERIOD</th><th>GEOGRAPHY</th><th>SEX</th><th>AGE_GROUP</th><th>INDICATOR</th><th>OBS_VALUE</th><th>STATUS</th></tr></thead>
+                    <tbody>
+                      <tr><td>2026</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,800,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2025</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,700,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2024</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,610,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2023</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,520,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2022</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,430,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2021</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,340,000</td><td><span class="status-pill">A</span></td></tr>
+                      <tr><td>2020</td><td>Taraba State</td><td>TOTAL</td><td>ALL</td><td>POPULATION</td><td class="observation-value">3,250,000</td><td><span class="status-pill">A</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              <section class="data-panel" id="panel-metadata">
+                <h2 class="panel-title">Metadata</h2>
+                <p class="panel-description">Definitions, provenance, methodology and technical information describing this dataset.</p>
+
+                <div class="metadata-grid">
+                  <div class="metadata-key">DATASET ID</div><div class="metadata-value">POP.POPULATION.01</div>
+                  <div class="metadata-key">DATAFLOW</div><div class="metadata-value">TRSBS:POPULATION(1.0)</div>
+                  <div class="metadata-key">AGENCY</div><div class="metadata-value">Taraba State Bureau of Statistics</div>
+                  <div class="metadata-key">SOURCE</div><div class="metadata-value">Taraba State Bureau of Statistics</div>
+                  <div class="metadata-key">FREQUENCY</div><div class="metadata-value">Annual</div>
+                  <div class="metadata-key">UNIT</div><div class="metadata-value">Persons</div>
+                  <div class="metadata-key">GEOGRAPHIC COVERAGE</div><div class="metadata-value">Taraba State and Local Government Areas</div>
+                  <div class="metadata-key">TIME COVERAGE</div><div class="metadata-value">2020–2026</div>
+                  <div class="metadata-key">LAST UPDATED</div><div class="metadata-value">2026</div>
+                  <div class="metadata-key">LICENSE</div><div class="metadata-value">Official statistical publication subject to TrSBS data-use conditions.</div>
+                </div>
+
+                <div class="sdmx-note">
+                  <div class="sdmx-note-icon">META</div>
+                  <div>
+                    <strong>Metadata is part of the statistical data</strong>
+                    <p>The production SDMX service will expose dataset definitions, dimension codes, concept schemes, codelists, units, provenance and other metadata alongside the observations.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="data-panel" id="panel-api-preview">
+                <h2 class="panel-title">Data API</h2>
+                <p class="panel-description">The same dataset can be consumed by developers through the TrSBS statistical data service.</p>
+
+                <div class="api-preview">
+                  <div class="api-preview-header"><span class="api-preview-title">SDMX QUERY</span><button class="copy-api" id="copyApi">Copy</button></div>
+                  <pre id="apiCode">GET /api/data/POP.POPULATION.01
+
+?GEO=NG.TA
+&SEX=T
+&AGE=ALL
+&TIME_PERIOD=2026
+
+Accept: application/vnd.sdmx.data+csv;version=2.0</pre>
+                </div>
+
+                <div class="api-preview">
+                  <div class="api-preview-header"><span class="api-preview-title">DATA SERVICE ARCHITECTURE</span></div>
+<pre>
+PUBLIC PORTAL
+     │
+     ▼
+DATASET VIEW
+     │
+     ▼
+SDMX QUERY
+     │
+     ▼
+TrSBS API
+     │
+     ├── trsbsR
+     │
+     ├── Validation
+     │
+     └── Metadata
+     │
+     ▼
+DATA WAREHOUSE
+</pre>
+                </div>
+
+                <div class="sdmx-note">
+                  <div class="sdmx-note-icon">API</div>
+                  <div>
+                    <strong>SDMX is the communication structure</strong>
+                    <p>The public portal does not need to expose database tables or backend implementation. It requests structured statistical series through the data service.</p>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ECONOMY -->
+    <section class="page section-page" id="page-economy">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">ECONOMY</div>
+          <h1 class="section-title">Taraba Economy</h1>
+          <p class="section-description">Explore economic activity, state GDP, prices, revenue, agriculture, labour and other economic indicators.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">GDP</span><h3>Taraba State GDP</h3><p>Economic output and sectoral contributions across the state.</p></article>
+          <article class="section-card"><span class="section-card-label">PRICES</span><h3>Prices &amp; Consumer Inflation</h3><p>Price movements and consumer price indicators.</p></article>
+          <article class="section-card"><span class="section-card-label">REVENUE</span><h3>State Revenue</h3><p>Internally generated revenue, taxation and public finance.</p></article>
+          <article class="section-card"><span class="section-card-label">LABOUR</span><h3>Employment &amp; Labour</h3><p>Labour force participation, employment and unemployment.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULATION -->
+    <section class="page section-page" id="page-population">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">POPULATION</div>
+          <h1 class="section-title">People of Taraba</h1>
+          <p class="section-description">Explore population size, demographic structure, households, communities and population distribution across Taraba.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">POPULATION</span><h3>Population Estimates</h3><p>Population estimates and historical population trends.</p></article>
+          <article class="section-card"><span class="section-card-label">DEMOGRAPHY</span><h3>Age &amp; Sex Structure</h3><p>Population by age, sex and demographic characteristics.</p></article>
+          <article class="section-card"><span class="section-card-label">LOCAL DATA</span><h3>LGA Population</h3><p>Population statistics across all 16 Local Government Areas.</p></article>
+          <article class="section-card"><span class="section-card-label">HOUSEHOLDS</span><h3>Households &amp; Living Conditions</h3><p>Household characteristics and selected welfare indicators.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORTS -->
+    <section class="page section-page" id="page-reports">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">REPORTS</div>
+          <h1 class="section-title">Reports &amp; Publications</h1>
+          <p class="section-description">Browse statistical bulletins, reports, yearbooks, surveys and analytical publications from TrSBS.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">YEARBOOK</span><h3>Taraba State Statistical Yearbook</h3><p>Consolidated annual statistics covering major sectors of Taraba State.</p></article>
+          <article class="section-card"><span class="section-card-label">BULLETIN</span><h3>Statistical Bulletin</h3><p>Periodic statistical updates and selected official indicators.</p></article>
+          <article class="section-card"><span class="section-card-label">SURVEY</span><h3>Survey Reports</h3><p>Reports generated from official state surveys and studies.</p></article>
+          <article class="section-card"><span class="section-card-label">ANALYSIS</span><h3>Analytical Reports</h3><p>Thematic analysis supporting policy, planning and research.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL DATA -->
+    <section class="page section-page" id="page-local-data">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">LOCAL DATA</div>
+          <h1 class="section-title">Taraba Local Data</h1>
+          <p class="section-description">Explore statistics at the Local Government Area level and discover the differences across Taraba.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">16 LGAs</span><h3>Local Government Profiles</h3><p>Explore statistical profiles for each Local Government Area.</p></article>
+          <article class="section-card"><span class="section-card-label">MAPS</span><h3>LGA Statistical Maps</h3><p>Explore population, agriculture, education and other spatial indicators.</p></article>
+          <article class="section-card"><span class="section-card-label">INDICATORS</span><h3>Local Indicators</h3><p>Compare selected indicators across Taraba's Local Government Areas.</p></article>
+          <article class="section-card"><span class="section-card-label">DOWNLOAD</span><h3>Local Data Downloads</h3><p>Download structured datasets for local analysis and research.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- API HUB -->
+    <section class="page section-page" id="page-api">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">DEVELOPER TOOLS</div>
+          <h1 class="section-title">API Hub</h1>
+          <p class="section-description">Access machine-readable statistical data, metadata, APIs and developer resources provided by TrSBS.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">API</span><h3>TrSBS Data API</h3><p>Programmatically access selected official statistics.</p></article>
+          <article class="section-card"><span class="section-card-label">SDMX</span><h3>SDMX Data Services</h3><p>Access standardized statistical datasets and metadata.</p></article>
+          <article class="section-card"><span class="section-card-label">METADATA</span><h3>Metadata Repository</h3><p>Explore definitions, dimensions, sources and statistical concepts.</p></article>
+          <article class="section-card"><span class="section-card-label">DEVELOPER</span><h3>Developer Documentation</h3><p>Technical documentation for developers and data users.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page section-page" id="page-about">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-eyebrow">INSTITUTION</div>
+          <h1 class="section-title">About the Taraba State Bureau of Statistics</h1>
+          <p class="section-description">Learn about the Bureau's mandate, statistical responsibilities, leadership, programmes and official statistics system.</p>
+        </div>
+        <div class="section-grid">
+          <article class="section-card"><span class="section-card-label">MANDATE</span><h3>Statistical Mandate</h3><p>Official mandate and responsibilities of the Taraba State Bureau of Statistics.</p></article>
+          <article class="section-card"><span class="section-card-label">LEADERSHIP</span><h3>Leadership &amp; Governance</h3><p>Information about the leadership, structure and governance of the Bureau.</p></article>
+          <article class="section-card"><span class="section-card-label">PROGRAMMES</span><h3>Statistical Programmes</h3><p>Major surveys, statistical programmes and activities undertaken by TrSBS.</p></article>
+          <article class="section-card"><span class="section-card-label">CONTACT</span><h3>Contact the Bureau</h3><p>Official contact information and channels for statistical requests.</p></article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Load order matters: datasets.js and navigation.js must load before
+     catalog.js/search.js (which call TRSBS.navigateTo etc.), and main.js
+     must load last since it boots the app. -->
+<script src="js/datasets.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+window.TRSBS=window.TRSBS||{};
+TRSBS.api={baseUrl:"/api/v1",endpoint:d=>`/api/v1/data/${d.datasetId}`,query:d=>`GET /api/v1/data/${d.datasetId}?GEO=NG.TA&TIME_PERIOD=${encodeURIComponent(d.timeCoverage||"latest")}\n\nAccept: application/vnd.sdmx.data+csv;version=2.0`};
